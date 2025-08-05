@@ -2,6 +2,7 @@ from flask import Flask,jsonify
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 from models import db
+from fetchjobs import fetch_jobs
 from flask_cors import CORS
 import os
 load_dotenv()
@@ -15,8 +16,9 @@ with app.app_context():
 
 
 @app.route('/api/jobs', methods=['GET'])
-def index():
-    return jsonify({"Jobs":["Software Apprentice","Junior Developer"]})
+def get_latest_job():
+    jobs = fetch_jobs()
+    return(jsonify(jobs))
 
 if __name__ == "__main__":
     app.run(debug=True)
