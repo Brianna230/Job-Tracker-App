@@ -18,7 +18,7 @@ def fetch_jobs():
 
  response = requests.get(url, headers=headers,params=querystring)
 
- jobs_list = []
+ 
 
  if response.status_code == 200:
   data = response.json()    # formatted the data in json formatted
@@ -35,14 +35,14 @@ def fetch_jobs():
  else:
    print(f"Failed to retrieve  data{response.status_code}")
 
- return jobs_list
-   
+ 
+
+fetch_jobs()
 
 
 
 
 schedule.every(10).minutes.do(fetch_jobs)
-fetch_jobs()
 while True:
   schedule.run_pending()
   time.sleep(1)
