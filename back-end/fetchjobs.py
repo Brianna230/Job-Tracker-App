@@ -63,4 +63,4 @@ def fetch_jobs():
 schedule.every(10).seconds.do(fetch_jobs)
 while True:
   schedule.run_pending()
-  time.sleep(1)
+  time.sleep(5)

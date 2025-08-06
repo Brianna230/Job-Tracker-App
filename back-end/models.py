@@ -12,5 +12,19 @@ class Job(db.Model):
     apply_link= db.Column(db.String(200))
     applied = db.Column(db.Boolean, default=False)
 
+    def to_dict(self):  #This help show the data from the databse to show in the browser thought flask.
+        return{
+            "id": self.id,
+            "title": self.title,
+            "company":self.company,
+            "location": self.location,
+            "date_posted": self.date_posted,
+            "apply_link": self.apply_link,
+            "applied": self.applied
+
+        }
+    
+
+
 def __repr__(jobseeker):
     return f"<Job {jobseeker.title} at {jobseeker.company}>"
