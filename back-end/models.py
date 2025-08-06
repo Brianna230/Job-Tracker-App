@@ -9,7 +9,7 @@ class Job(db.Model):
     company= db.Column(db.String(100),nullable=False)
     location= db.Column(db.String(100))
     date_posted = db.Column(db.Date)
-    url= db.Column(db.String(200))
+    apply_link= db.Column(db.String(200))
     applied = db.Column(db.Boolean, default=False)
 
 def __repr__(jobseeker):
