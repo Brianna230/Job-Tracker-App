@@ -1,5 +1,5 @@
 import requests, json
-from flask import Flask
+from app import app
 from models import db , Job
 import os
 import schedule
@@ -8,9 +8,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-db.init_app(app)
+
 
 def fetch_jobs():
  url = "https://jsearch.p.rapidapi.com/search"
