@@ -14,7 +14,7 @@ def fetch_jobs():
  url = "https://jsearch.p.rapidapi.com/search"
 
  for page in range(1,21):
-  querystring ={"query":" entry level IT jobs in new york","page":str(page),"num_pages":"1","country":"us","date_posted":"all"}
+  querystring ={"query": "entry level IT jobs in new york","page":str(page),"num_pages":"1","country":"us","date_posted":"all"}
 
  headers ={
     "x-rapidapi-key": os.getenv('RAPIDAPI_KEY'),
@@ -23,7 +23,6 @@ def fetch_jobs():
 
  response = requests.get(url, headers=headers,params=querystring)
 
- jobs=[]
  
  if response.status_code == 200:
   data = response.json()    # formatted the data in json formatted
@@ -53,12 +52,11 @@ def fetch_jobs():
 
  print("Job fetch complete.\n")
 
-# fetch_jobs()
 
 
 
 
-schedule.every(10).seconds.do(fetch_jobs)
+schedule.every(5).minutes.do(fetch_jobs)
 while True:
   schedule.run_pending()
   time.sleep(5)
