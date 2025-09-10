@@ -9,7 +9,7 @@ class Job(db.Model):
     company= db.Column(db.String(100),nullable=False)
     location= db.Column(db.String(100))
     date_posted = db.Column(db.Date)
-    apply_link= db.Column(db.String(200))
+    apply_link= db.Column(db.String(500))
     applied = db.Column(db.Boolean, default=False)
 
     def to_dict(self):  #This help show the data from the databse to show in the browser thought flask.

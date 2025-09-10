@@ -15,10 +15,10 @@ with app.app_context():
     db.create_all()
 
 def fetch_latest_job():
-    jobs = Job.query.order_by(Job.id.asc()).limit(14).all() 
+    jobs = Job.query.order_by(Job.id.asc()).limit(21).all() 
     return[job.to_dict() for job in jobs]
 
-@app.route('/api/jobs', methods=['GET'])
+@app.route("/", methods=['GET'])
 def get_latest_job():
     job_data = fetch_latest_job()
     return jsonify(job_data)

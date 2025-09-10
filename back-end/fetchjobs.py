@@ -14,7 +14,7 @@ def fetch_jobs():
  url = "https://jsearch.p.rapidapi.com/search"
 
  for page in range(1,21):
-  querystring ={"query": "entry level IT jobs in new york","page":str(page),"num_pages":"1","country":"us","date_posted":"all"}
+  querystring ={"query": "IT jobs in new york","page":str(page),"num_pages":"1","country":"us","date_posted":"all"}
 
  headers ={
     "x-rapidapi-key": os.getenv('RAPIDAPI_KEY'),
